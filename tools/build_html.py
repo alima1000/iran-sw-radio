@@ -1351,7 +1351,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 
             <div class="form-group" style="margin-bottom:12px;">
               <label for="online-update-url">آدرس URL مخزن یا فایل JSON:</label>
-              <input type="url" id="online-update-url" class="form-control" value="https://raw.githubusercontent.com/iran-sw-radio/database/main/data/radio-database.json" placeholder="https://example.com/radio-database.json">
+              <input type="url" id="online-update-url" class="form-control" value="https://raw.githubusercontent.com/alima1000/iran-sw-radio/main/data/radio-database.json" placeholder="https://example.com/radio-database.json">
             </div>
 
             <div style="display:flex; align-items:center; gap:8px; margin-bottom:14px; font-size:12px; color:var(--text-secondary);">
