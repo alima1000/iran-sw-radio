@@ -1,0 +1,1298 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>Iran SW Radio — راهنمای جامع و چاپی رادیوهای موج کوتاه</title>
+  <style>
+    @page {
+      size: A4 portrait;
+      margin: 15mm 12mm 15mm 12mm;
+      @bottom-right {
+        content: "Iran SW Radio • نسخه 2.0.0-B26";
+        font-family: 'Vazirmatn', Tahoma, sans-serif;
+        font-size: 8pt;
+        color: #666;
+      }
+      @bottom-left {
+        content: "صفحه " counter(page);
+        font-family: 'Vazirmatn', Tahoma, sans-serif;
+        font-size: 8pt;
+        color: #666;
+      }
+    }
+
+    body {
+      font-family: 'Vazirmatn', -apple-system, BlinkMacSystemFont, 'Segoe UI', Tahoma, sans-serif;
+      direction: rtl;
+      text-align: right;
+      color: #111;
+      background: #fff;
+      font-size: 9.5pt;
+      line-height: 1.6;
+    }
+
+    .cover-header {
+      border-bottom: 2.5px solid #1f497d;
+      padding-bottom: 12px;
+      margin-bottom: 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .cover-title {
+      font-size: 20pt;
+      font-weight: 800;
+      color: #1f497d;
+      margin-bottom: 4px;
+    }
+
+    .cover-subtitle {
+      font-size: 11pt;
+      color: #444;
+      font-weight: 600;
+    }
+
+    .meta-box {
+      background: #f0f4f8;
+      border: 1px solid #d0dbe5;
+      border-radius: 6px;
+      padding: 10px 14px;
+      margin-bottom: 18px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      font-size: 8.5pt;
+    }
+
+    .meta-item strong {
+      color: #1f497d;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    h2.section-title {
+      font-size: 13pt;
+      font-weight: 800;
+      color: #1f497d;
+      background: #eef3f8;
+      border-right: 4px solid #1f497d;
+      padding: 6px 12px;
+      margin-top: 22px;
+      margin-bottom: 12px;
+      page-break-after: avoid;
+    }
+
+    table.pdf-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 16px;
+      font-size: 8.5pt;
+      page-break-inside: auto;
+    }
+
+    table.pdf-table tr {
+      page-break-inside: avoid;
+      page-break-after: auto;
+    }
+
+    table.pdf-table thead {
+      display: table-header-group;
+    }
+
+    table.pdf-table th {
+      background-color: #1f497d;
+      color: #ffffff;
+      padding: 6px 8px;
+      border: 1px solid #16365c;
+      font-weight: 700;
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    table.pdf-table td {
+      padding: 5px 8px;
+      border: 1px solid #ccc;
+      vertical-align: middle;
+    }
+
+    table.pdf-table tr:nth-child(even) td {
+      background-color: #f9fbfd;
+    }
+
+    .badge-a { background: #e6f4ea; color: #137333; font-weight: 700; padding: 2px 5px; border-radius: 3px; border: 1px solid #ceead6; font-size: 8pt; }
+    .badge-b { background: #e8f0fe; color: #1a73e8; font-weight: 700; padding: 2px 5px; border-radius: 3px; border: 1px solid #d2e3fc; font-size: 8pt; }
+    .badge-c { background: #fef7e0; color: #b06000; font-weight: 700; padding: 2px 5px; border-radius: 3px; border: 1px solid #fce8b2; font-size: 8pt; }
+
+    .box-info {
+      background: #fafafa;
+      border: 1px solid #e0e0e0;
+      border-radius: 6px;
+      padding: 12px 14px;
+      margin-bottom: 16px;
+      font-size: 9pt;
+      line-height: 1.8;
+      page-break-inside: avoid;
+    }
+
+    .page-break {
+      page-break-before: always;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- COVER HEADER -->
+  <div class="cover-header">
+    <div>
+      <div class="cover-title">Iran SW Radio</div>
+      <div class="cover-subtitle">راهنمای جامع، دقیق و آفلاین رادیوهای موج کوتاه (SW) به وقت تهران</div>
+    </div>
+    <div style="text-align: left; font-size: 8.5pt; color: #555;">
+      <div><strong>نسخه سند:</strong> 2.0.0-B26</div>
+      <div><strong>اعتبار جدول:</strong> فصل زمستان B26 (۲۰۲۶-۲۰۲۷)</div>
+      <div><strong>ساعت مبنا:</strong> وقت رسمی تهران (UTC+03:30)</div>
+    </div>
+  </div>
+
+  <div class="meta-box">
+    <div class="meta-item">
+      <strong>وضعیت کاربرد:</strong>
+      طراحی‌شده برای زمان قطع کامل اینترنت بین‌الملل و شرایط اضطراری
+    </div>
+    <div class="meta-item">
+      <strong>آمار پایگاه داده:</strong>
+      21 شبکه رادیویی • 55 رکورد پخش • 41 برنامه فارسی
+    </div>
+    <div class="meta-item">
+      <strong>منابع استناد:</strong>
+      اتحادیه بین‌المللی HFCC B26، دایرکتوری EiBi و وب‌سایت‌های رسمی شبکه‌ها
+    </div>
+  </div>
+
+  <!-- SECTION 1: PERSIAN SCHEDULE -->
+  <h2 class="section-title">۱. جدول برنامه‌های فارسی‌زبان به ترتیب ساعت تهران</h2>
+  <table class="pdf-table">
+    <thead>
+      <tr>
+        <th style="width: 18%;">ساعت پخش (تهران)</th>
+        <th style="width: 14%;">فرکانس (kHz)</th>
+        <th style="width: 13%;">باند امواج</th>
+        <th style="width: 20%;">نام شبکه</th>
+        <th style="width: 25%;">برنامه و فرستنده</th>
+        <th style="width: 10%;">اعتبار</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><strong>03:30 تا 03:30 (۲۴ ساعته)</strong></td>
+        <td><strong style="color:#1f497d; font-size:9.5pt;">1548 kHz</strong></td>
+        <td>موج متوسط (MW)</td>
+        <td><strong>صدای آمریکا (VOA بخش فارسی)</strong></td>
+        <td>صدای آمریکا: پخش ۲۴ ساعته موج متوسط خاورمیانه<br><small style="color:#555;">فرستنده: الکبد (کویت) (600 kW)</small></td>
+        <td><span class="badge-a">سطح A</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong>03:30 تا 09:30</strong></td>
+        <td><strong style="color:#1f497d; font-size:9.5pt;">5860 kHz</strong></td>
+        <td>باند ۴۹ متر</td>
+        <td><strong>رادیو فردا</strong></td>
+        <td>رادیو فردا: اخبار، گزارش و پخش زنده بامداد و صبحگاهی<br><small style="color:#555;">فرستنده: الکبد (کویت) (250 kW)</small></td>
+        <td><span class="badge-a">سطح A</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong>04:20 تا 05:50</strong></td>
+        <td><strong style="color:#1f497d; font-size:9.5pt;">6000 kHz</strong></td>
+        <td>باند ۴۹ متر</td>
+        <td><strong>صدای جمهوری اسلامی ایران (سرویس‌های برون‌مرزی صدا و سیما)</strong></td>
+        <td>صدای جمهوری اسلامی ایران: برنامه تاجیکی (موج کوتاه باند ۴۹ متر)<br><small style="color:#555;">فرستنده: سیرجان (کرمان) (500 kW)</small></td>
+        <td><span class="badge-a">سطح A</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong>06:50 تا 18:50</strong></td>
+        <td><strong style="color:#1f497d; font-size:9.5pt;">720 kHz</strong></td>
+        <td>موج متوسط (MW)</td>
+        <td><strong>صدای جمهوری اسلامی ایران (سرویس‌های برون‌مرزی صدا و سیما)</strong></td>
+        <td>صدای جمهوری اسلامی ایران: سرویس دری (ویژه افغانستان)<br><small style="color:#555;">فرستنده: تایباد / شرق ایران (200 kW)</small></td>
+        <td><span class="badge-a">سطح A</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong>07:30 تا 09:00</strong></td>
+        <td><strong style="color:#1f497d; font-size:9.5pt;">15130 kHz</strong></td>
+        <td>باند ۱۹ متر</td>
+        <td><strong>رادیو هند (آکاشوانی / بخش فارسی)</strong></td>
+        <td>رادیو هند (آکاشوانی): برنامه صبحگاهی بخش فارسی<br><small style="color:#555;">فرستنده: بنگالورو (هند) (250 kW)</small></td>
+        <td><span class="badge-a">سطح A</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong>09:30 تا 15:30</strong></td>
+        <td><strong style="color:#1f497d; font-size:9.5pt;">12005 kHz</strong></td>
+        <td>باند ۲۵ متر</td>
+        <td><strong>رادیو فردا</strong></td>
+        <td>رادیو فردا: برنامه روزانه (باند ۲۵ متر)<br><small style="color:#555;">فرستنده: الکبد (کویت) (250 kW)</small></td>
+        <td><span class="badge-a">سطح A</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong>11:30 تا 13:30</strong></td>
+        <td><strong style="color:#1f497d; font-size:9.5pt;">7250 kHz</strong></td>
+        <td>باند ۴۱ متر</td>
+        <td><strong>رادیو کویت (بخش فارسی)</strong></td>
+        <td>رادیو کویت: برنامه نیمروزی بخش فارسی<br><small style="color:#555;">فرستنده: الکبد (کویت) (250 kW)</small></td>
+        <td><span class="badge-a">سطح A</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong>11:30 تا 18:30</strong></td>
+        <td><strong style="color:#1f497d; font-size:9.5pt;">12070 kHz</strong></td>
+        <td>باند ۲۵ متر</td>
+        <td><strong>رادیو فردا</strong></td>
+        <td>رادیو فردا: فرکانس جایگزین روزانه (باند ۲۵ متر)<br><small style="color:#555;">فرستنده: بیبلیس (آلمان) (100 kW)</small></td>
+        <td><span class="badge-a">سطح A</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong>12:00 تا 13:30</strong></td>
+        <td><strong style="color:#1f497d; font-size:9.5pt;">15720 kHz</strong></td>
+        <td>باند ۱۹ متر</td>
+        <td><strong>صدای ترکیه (TRT بخش فارسی)</strong></td>
+        <td>صدای ترکیه: برنامه نیمروزی بخش فارسی (باند ۱۹ متر)<br><small style="color:#555;">فرستنده: امیرلر (ترکیه) (500 kW)</small></td>
+        <td><span class="badge-a">سطح A</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong>13:00 تا 14:30</strong></td>
+        <td><strong style="color:#1f497d; font-size:9.5pt;">13745 kHz</strong></td>
+        <td>باند ۲۲ متر</td>
+        <td><strong>صدای ترکیه (TRT بخش فارسی)</strong></td>
+        <td>صدای ترکیه: فرکانس روزانه فصول سرد (باند ۲۲ متر)<br><small style="color:#555;">فرستنده: امیرلر (ترکیه) (500 kW)</small></td>
+        <td><span class="badge-a">سطح A</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong>14:30 تا 17:30</strong></td>
+        <td><strong style="color:#1f497d; font-size:9.5pt;">7435 kHz</strong></td>
+        <td>باند ۴۱ متر</td>
+        <td><strong>رادیو فردا</strong></td>
+        <td>رادیو فردا: مجله نیمروزی و بعدازظهر<br><small style="color:#555;">فرستنده: الکبد (کویت) (250 kW)</small></td>
+        <td><span class="badge-a">سطح A</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong>17:00 تا 18:00</strong></td>
+        <td><strong style="color:#1f497d; font-size:9.5pt;">11945 kHz</strong></td>
+        <td>باند ۲۵ متر</td>
+        <td><strong>شبکه‌های سیاسی و رادیوهای زیرزمینی (پیام، براندازی، مجاهد)</strong></td>
+        <td>رادیو براندازی<br><small style="color:#555;">فرستنده: فرستنده متغیر (100 kW)</small></td>
+        <td><span class="badge-c">سطح C</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong>17:30 تا 02:30 (روز بعد)</strong></td>
+        <td><strong style="color:#1f497d; font-size:9.5pt;">9360 kHz</strong></td>
+        <td>باند ۳۱ متر</td>
+        <td><strong>رادیو فردا</strong></td>
+        <td>رادیو فردا: پخش زنده عصر و شامگاهی<br><small style="color:#555;">فرستنده: الکبد (کویت) (250 kW)</small></td>
+        <td><span class="badge-a">سطح A</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong>18:30 تا 20:30</strong></td>
+        <td><strong style="color:#1f497d; font-size:9.5pt;">1395 kHz</strong></td>
+        <td>موج متوسط (MW)</td>
+        <td><strong>رادیو فردا</strong></td>
+        <td>رادیو فردا: رله موج متوسط بعدازظهر<br><small style="color:#555;">فرستنده: گاوار (ارمنستان) (500 kW)</small></td>
+        <td><span class="badge-a">سطح A</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong>18:30 تا 19:00</strong></td>
+        <td><strong style="color:#1f497d; font-size:9.5pt;">9570 kHz</strong></td>
+        <td>باند ۳۱ متر</td>
+        <td><strong>رادیو بین‌المللی چین (بخش فارسی)</strong></td>
+        <td>رادیو بین‌المللی چین: برنامه بعدازظهر بخش فارسی (باند ۳۱ متر)<br><small style="color:#555;">فرستنده: ارومچی (چین) (500 kW)</small></td>
+        <td><span class="badge-a">سطح A</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong>18:30 تا 19:00</strong></td>
+        <td><strong style="color:#1f497d; font-size:9.5pt;">9600 kHz</strong></td>
+        <td>باند ۳۱ متر</td>
+        <td><strong>رادیو بین‌المللی چین (بخش فارسی)</strong></td>
+        <td>رادیو بین‌المللی چین: فرکانس موازی بعدازظهر (باند ۳۱ متر)<br><small style="color:#555;">فرستنده: کاشغر (سین‌کیانگ) (500 kW)</small></td>
+        <td><span class="badge-a">سطح A</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong>18:30 تا 19:30</strong></td>
+        <td><strong style="color:#1f497d; font-size:9.5pt;">9765 kHz</strong></td>
+        <td>باند ۳۱ متر</td>
+        <td><strong>صدای ترکیه (TRT بخش فارسی)</strong></td>
+        <td>صدای ترکیه: برنامه غروبگاهی بخش فارسی<br><small style="color:#555;">فرستنده: امیرلر (ترکیه) (500 kW)</small></td>
+        <td><span class="badge-a">سطح A</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong>19:30 تا 01:30 (روز بعد)</strong></td>
+        <td><strong style="color:#1f497d; font-size:9.5pt;">9370 kHz</strong></td>
+        <td>باند ۳۱ متر</td>
+        <td><strong>رادیو فردا</strong></td>
+        <td>رادیو فردا: فرکانس مکمل شامگاهی (باند ۳۱ متر)<br><small style="color:#555;">فرستنده: ووفِرتون (بریتانیا) / بیبلیس (250 kW)</small></td>
+        <td><span class="badge-a">سطح A</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong>19:30 تا 20:30</strong></td>
+        <td><strong style="color:#1f497d; font-size:9.5pt;">9490 kHz</strong></td>
+        <td>باند ۳۱ متر</td>
+        <td><strong>صدای ترکیه (TRT بخش فارسی)</strong></td>
+        <td>صدای ترکیه: فرکانس زمستانه بخش فارسی (باند ۳۱ متر)<br><small style="color:#555;">فرستنده: امیرلر (ترکیه) (500 kW)</small></td>
+        <td><span class="badge-a">سطح A</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong>19:30 تا 21:00</strong></td>
+        <td><strong style="color:#1f497d; font-size:9.5pt;">9620 kHz</strong></td>
+        <td>باند ۳۱ متر</td>
+        <td><strong>رادیو هند (آکاشوانی / بخش فارسی)</strong></td>
+        <td>رادیو هند (آکاشوانی): برنامه شبانگاهی بخش فارسی<br><small style="color:#555;">فرستنده: بنگالورو (هند) (250 kW)</small></td>
+        <td><span class="badge-a">سطح A</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong>19:30 تا 21:00</strong></td>
+        <td><strong style="color:#1f497d; font-size:9.5pt;">11905 kHz</strong></td>
+        <td>باند ۲۵ متر</td>
+        <td><strong>رادیو هند (آکاشوانی / بخش فارسی)</strong></td>
+        <td>رادیو هند: فرکانس تکمیلی شامگاهی (باند ۲۵ متر)<br><small style="color:#555;">فرستنده: بنگالورو (هند) (250 kW)</small></td>
+        <td><span class="badge-a">سطح A</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong>20:00 تا 20:30</strong></td>
+        <td><strong style="color:#1f497d; font-size:9.5pt;">702 kHz</strong></td>
+        <td>موج متوسط (MW)</td>
+        <td><strong>رادیو فارسی بی‌بی‌سی (پخش اضطراری و رله‌ها)</strong></td>
+        <td>رادیو فارسی بی‌بی‌سی: رله موج متوسط خلیج فارس و جنوب ایران<br><small style="color:#555;">فرستنده: الاشخره (عمان) (800 kW)</small></td>
+        <td><span class="badge-c">سطح C</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong>20:00 تا 20:30</strong></td>
+        <td><strong style="color:#1f497d; font-size:9.5pt;">720 kHz</strong></td>
+        <td>موج متوسط (MW)</td>
+        <td><strong>رادیو فارسی بی‌بی‌سی (پخش اضطراری و رله‌ها)</strong></td>
+        <td>رادیو فارسی بی‌بی‌سی: رله موج متوسط قبرس<br><small style="color:#555;">فرستنده: زیگی (قبرس) (300 kW)</small></td>
+        <td><span class="badge-c">سطح C</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong>20:00 تا 20:20</strong></td>
+        <td><strong style="color:#1f497d; font-size:9.5pt;">1251 kHz</strong></td>
+        <td>موج متوسط (MW)</td>
+        <td><strong>رادیو ژاپن (NHK World بخش فارسی)</strong></td>
+        <td>رادیو ژاپن: رله پرقدرت موج متوسط از تاجیکستان<br><small style="color:#555;">فرستنده: دوشنبه / اورزو (تاجیکستان) (500 kW)</small></td>
+        <td><span class="badge-a">سطح A</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong>20:00 تا 20:30</strong></td>
+        <td><strong style="color:#1f497d; font-size:9.5pt;">6000 kHz</strong></td>
+        <td>باند ۴۹ متر</td>
+        <td><strong>رادیو فارسی بی‌بی‌سی (پخش اضطراری و رله‌ها)</strong></td>
+        <td>رادیو فارسی بی‌بی‌سی: فرکانس رله اضطراری موج کوتاه (باند ۴۹ متر)<br><small style="color:#555;">فرستنده: ترینکومالی (سری‌لانکا) (250 kW)</small></td>
+        <td><span class="badge-c">سطح C</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong>20:00 تا 20:20</strong></td>
+        <td><strong style="color:#1f497d; font-size:9.5pt;">9600 kHz</strong></td>
+        <td>باند ۳۱ متر</td>
+        <td><strong>رادیو ژاپن (NHK World بخش فارسی)</strong></td>
+        <td>رادیو ژاپن: فرکانس زمستانه بخش فارسی (باند ۳۱ متر)<br><small style="color:#555;">فرستنده: یاماتا (ژاپن) (300 kW)</small></td>
+        <td><span class="badge-a">سطح A</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong>20:00 تا 20:20</strong></td>
+        <td><strong style="color:#1f497d; font-size:9.5pt;">13600 kHz</strong></td>
+        <td>باند ۲۲ متر</td>
+        <td><strong>رادیو ژاپن (NHK World بخش فارسی)</strong></td>
+        <td>رادیو ژاپن (NHK World): برنامه شامگاهی بخش فارسی<br><small style="color:#555;">فرستنده: یاماتا (ژاپن) (300 kW)</small></td>
+        <td><span class="badge-a">سطح A</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong>20:30 تا 23:30</strong></td>
+        <td><strong style="color:#1f497d; font-size:9.5pt;">864 kHz</strong></td>
+        <td>موج متوسط (MW)</td>
+        <td><strong>رادیو فردا</strong></td>
+        <td>رادیو فردا: رله موج متوسط شمال و غرب ایران<br><small style="color:#555;">فرستنده: گاوار (ارمنستان) (500 kW)</small></td>
+        <td><span class="badge-a">سطح A</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong>20:30 تا 21:00</strong></td>
+        <td><strong style="color:#1f497d; font-size:9.5pt;">9320 kHz</strong></td>
+        <td>باند ۳۱ متر</td>
+        <td><strong>شبکه‌های سیاسی و رادیوهای زیرزمینی (پیام، براندازی، مجاهد)</strong></td>
+        <td>صدای مجاهد (رادیو مجاهدین خلق)<br><small style="color:#555;">فرستنده: فرستنده اجاره‌ای متغیر (100 kW)</small></td>
+        <td><span class="badge-c">سطح C</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong>20:30 تا 00:30 (روز بعد)</strong></td>
+        <td><strong style="color:#1f497d; font-size:9.5pt;">11815 kHz</strong></td>
+        <td>باند ۲۵ متر</td>
+        <td><strong>شبکه‌های سیاسی و رادیوهای زیرزمینی (پیام، براندازی، مجاهد)</strong></td>
+        <td>رادیو پیام: فرکانس جایگزین شامگاهی<br><small style="color:#555;">فرستنده: ووفِرتون (بریتانیا) (250 kW)</small></td>
+        <td><span class="badge-c">سطح C</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong>21:00 تا 23:00</strong></td>
+        <td><strong style="color:#1f497d; font-size:9.5pt;">9310 kHz</strong></td>
+        <td>باند ۳۱ متر</td>
+        <td><strong>شبکه‌های سیاسی و رادیوهای زیرزمینی (پیام، براندازی، مجاهد)</strong></td>
+        <td>رادیو پیام (چپ / کارگری و دانشجویی)<br><small style="color:#555;">فرستنده: فرستنده اجاره‌ای اروپای شرقی (100 kW)</small></td>
+        <td><span class="badge-c">سطح C</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong>21:30 تا 23:00</strong></td>
+        <td><strong style="color:#1f497d; font-size:9.5pt;">1377 kHz</strong></td>
+        <td>موج متوسط (MW)</td>
+        <td><strong>رادیوهای فرهنگی و مذهبی (رادیو مژده / ترانس ورلد و ندای کتاب مقدس)</strong></td>
+        <td>رادیو مژده (ترانس ورلد رادیو / بخش فارسی)<br><small style="color:#555;">فرستنده: گاوار (ارمنستان) (500 kW)</small></td>
+        <td><span class="badge-b">سطح B</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong>21:30 تا 22:30</strong></td>
+        <td><strong style="color:#1f497d; font-size:9.5pt;">7325 kHz</strong></td>
+        <td>باند ۴۱ متر</td>
+        <td><strong>رادیو بین‌المللی چین (بخش فارسی)</strong></td>
+        <td>رادیو بین‌المللی چین: بازپخش شامگاهی (باند ۴۱ متر)<br><small style="color:#555;">فرستنده: پکن (چین) (500 kW)</small></td>
+        <td><span class="badge-a">سطح A</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong>21:30 تا 22:30</strong></td>
+        <td><strong style="color:#1f497d; font-size:9.5pt;">7415 kHz</strong></td>
+        <td>باند ۴۱ متر</td>
+        <td><strong>رادیو بین‌المللی چین (بخش فارسی)</strong></td>
+        <td>رادیو بین‌المللی چین: برنامه شامگاهی بخش فارسی (نوبت اول)<br><small style="color:#555;">فرستنده: شی‌آن (چین) (500 kW)</small></td>
+        <td><span class="badge-a">سطح A</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong>21:30 تا 22:00</strong></td>
+        <td><strong style="color:#1f497d; font-size:9.5pt;">9400 kHz</strong></td>
+        <td>باند ۳۱ متر</td>
+        <td><strong>رادیوهای فرهنگی و مذهبی (رادیو مژده / ترانس ورلد و ندای کتاب مقدس)</strong></td>
+        <td>صدای انجیل (Bible Voice بخش فارسی - باند ۳۱ متر)<br><small style="color:#555;">فرستنده: کوستینبرود (بلغارستان) (100 kW)</small></td>
+        <td><span class="badge-b">سطح B</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong>21:30 تا 22:00</strong></td>
+        <td><strong style="color:#1f497d; font-size:9.5pt;">9670 kHz</strong></td>
+        <td>باند ۳۱ متر</td>
+        <td><strong>رادیو بین‌المللی چین (بخش فارسی)</strong></td>
+        <td>رادیو بین‌المللی چین: فرکانس موازی شامگاهی (باند ۳۱ متر)<br><small style="color:#555;">فرستنده: پکن (چین) (500 kW)</small></td>
+        <td><span class="badge-a">سطح A</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong>21:30 تا 22:00</strong></td>
+        <td><strong style="color:#1f497d; font-size:9.5pt;">11855 kHz</strong></td>
+        <td>باند ۲۵ متر</td>
+        <td><strong>رادیوهای فرهنگی و مذهبی (رادیو مژده / ترانس ورلد و ندای کتاب مقدس)</strong></td>
+        <td>صدای انجیل (Bible Voice بخش فارسی - باند ۲۵ متر)<br><small style="color:#555;">فرستنده: نائن (آلمان) (500 kW)</small></td>
+        <td><span class="badge-b">سطح B</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong>22:30 تا 07:30 (روز بعد)</strong></td>
+        <td><strong style="color:#1f497d; font-size:9.5pt;">5890 kHz</strong></td>
+        <td>باند ۴۹ متر</td>
+        <td><strong>صدا و سیمای ایران اینترنشنال (رله موج کوتاه)</strong></td>
+        <td>ایران اینترنشنال: رله صوتی شبانگاهی موج کوتاه (فرکانس اصلی)<br><small style="color:#555;">فرستنده: کوستینبرود (بلغارستان - اسپیس‌لاین) (100 kW)</small></td>
+        <td><span class="badge-b">سطح B</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong>22:30 تا 07:30 (روز بعد)</strong></td>
+        <td><strong style="color:#1f497d; font-size:9.5pt;">5900 kHz</strong></td>
+        <td>باند ۴۹ متر</td>
+        <td><strong>صدا و سیمای ایران اینترنشنال (رله موج کوتاه)</strong></td>
+        <td>ایران اینترنشنال: فرکانس موازی رله شبانگاهی (باند ۴۹ متر)<br><small style="color:#555;">فرستنده: کوستینبرود (بلغارستان - اسپیس‌لاین) (100 kW)</small></td>
+        <td><span class="badge-b">سطح B</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong>23:00 تا 00:00 (روز بعد)</strong></td>
+        <td><strong style="color:#1f497d; font-size:9.5pt;">6010 kHz</strong></td>
+        <td>باند ۴۹ متر</td>
+        <td><strong>رادیو زمانه</strong></td>
+        <td>رادیو زمانه: برنامه شبانگاهی مجله اجتماعی و فرهنگی<br><small style="color:#555;">فرستنده: کوستینبرود (بلغارستان - اسپیس‌لاین) (100 kW)</small></td>
+        <td><span class="badge-b">سطح B</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong>23:30 تا 02:30 (روز بعد)</strong></td>
+        <td><strong style="color:#1f497d; font-size:9.5pt;">864 kHz</strong></td>
+        <td>موج متوسط (MW)</td>
+        <td><strong>صدا و سیمای ایران اینترنشنال (رله موج کوتاه)</strong></td>
+        <td>ایران اینترنشنال: رله موج متوسط شمال ایران<br><small style="color:#555;">فرستنده: گاوار (ارمنستان) (500 kW)</small></td>
+        <td><span class="badge-b">سطح B</span></td>
+      </tr>
+      
+    </tbody>
+  </table>
+
+  <!-- SECTION 2: FREQUENCY ORDERED SPECTRUM -->
+  <div class="page-break"></div>
+  <h2 class="section-title">۲. مرور جدول به ترتیب صعودی فرکانس (کیلوهرتز kHz)</h2>
+  <table class="pdf-table">
+    <thead>
+      <tr>
+        <th style="width: 14%;">فرکانس (kHz)</th>
+        <th style="width: 14%;">باند امواج</th>
+        <th style="width: 20%;">شبکه و برنامه</th>
+        <th style="width: 10%;">زبان</th>
+        <th style="width: 18%;">ساعت پخش (تهران)</th>
+        <th style="width: 14%;">فرستنده / توان</th>
+        <th style="width: 10%;">سطح اطمینان</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><strong style="color:#1f497d; font-size:10pt;">702</strong> <small>kHz</small></td>
+        <td>موج متوسط (MW)</td>
+        <td><strong>رادیو فارسی بی‌بی‌سی (پخش اضطراری و رله‌ها)</strong><br><small style="color:#555;">رادیو فارسی بی‌بی‌سی: رله موج متوسط خلیج فارس و جنوب ایران</small></td>
+        <td>فارسی</td>
+        <td><strong>20:00 تا 20:30</strong></td>
+        <td>الاشخره (عمان)<br><small style="color:#666;">800 kW</small></td>
+        <td><span class="badge-c">سطح C</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong style="color:#1f497d; font-size:10pt;">720</strong> <small>kHz</small></td>
+        <td>موج متوسط (MW)</td>
+        <td><strong>صدای جمهوری اسلامی ایران (سرویس‌های برون‌مرزی صدا و سیما)</strong><br><small style="color:#555;">صدای جمهوری اسلامی ایران: سرویس دری (ویژه افغانستان)</small></td>
+        <td>دری (فارسی شرقی)</td>
+        <td><strong>06:50 تا 18:50</strong></td>
+        <td>تایباد / شرق ایران<br><small style="color:#666;">200 kW</small></td>
+        <td><span class="badge-a">سطح A</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong style="color:#1f497d; font-size:10pt;">720</strong> <small>kHz</small></td>
+        <td>موج متوسط (MW)</td>
+        <td><strong>رادیو فارسی بی‌بی‌سی (پخش اضطراری و رله‌ها)</strong><br><small style="color:#555;">رادیو فارسی بی‌بی‌سی: رله موج متوسط قبرس</small></td>
+        <td>فارسی</td>
+        <td><strong>20:00 تا 20:30</strong></td>
+        <td>زیگی (قبرس)<br><small style="color:#666;">300 kW</small></td>
+        <td><span class="badge-c">سطح C</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong style="color:#1f497d; font-size:10pt;">864</strong> <small>kHz</small></td>
+        <td>موج متوسط (MW)</td>
+        <td><strong>رادیو فردا</strong><br><small style="color:#555;">رادیو فردا: رله موج متوسط شمال و غرب ایران</small></td>
+        <td>فارسی</td>
+        <td><strong>20:30 تا 23:30</strong></td>
+        <td>گاوار (ارمنستان)<br><small style="color:#666;">500 kW</small></td>
+        <td><span class="badge-a">سطح A</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong style="color:#1f497d; font-size:10pt;">864</strong> <small>kHz</small></td>
+        <td>موج متوسط (MW)</td>
+        <td><strong>صدا و سیمای ایران اینترنشنال (رله موج کوتاه)</strong><br><small style="color:#555;">ایران اینترنشنال: رله موج متوسط شمال ایران</small></td>
+        <td>فارسی</td>
+        <td><strong>23:30 تا 02:30 (روز بعد)</strong></td>
+        <td>گاوار (ارمنستان)<br><small style="color:#666;">500 kW</small></td>
+        <td><span class="badge-b">سطح B</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong style="color:#1f497d; font-size:10pt;">1251</strong> <small>kHz</small></td>
+        <td>موج متوسط (MW)</td>
+        <td><strong>رادیو ژاپن (NHK World بخش فارسی)</strong><br><small style="color:#555;">رادیو ژاپن: رله پرقدرت موج متوسط از تاجیکستان</small></td>
+        <td>فارسی</td>
+        <td><strong>20:00 تا 20:20</strong></td>
+        <td>دوشنبه / اورزو (تاجیکستان)<br><small style="color:#666;">500 kW</small></td>
+        <td><span class="badge-a">سطح A</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong style="color:#1f497d; font-size:10pt;">1377</strong> <small>kHz</small></td>
+        <td>موج متوسط (MW)</td>
+        <td><strong>رادیوهای فرهنگی و مذهبی (رادیو مژده / ترانس ورلد و ندای کتاب مقدس)</strong><br><small style="color:#555;">رادیو مژده (ترانس ورلد رادیو / بخش فارسی)</small></td>
+        <td>فارسی</td>
+        <td><strong>21:30 تا 23:00</strong></td>
+        <td>گاوار (ارمنستان)<br><small style="color:#666;">500 kW</small></td>
+        <td><span class="badge-b">سطح B</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong style="color:#1f497d; font-size:10pt;">1395</strong> <small>kHz</small></td>
+        <td>موج متوسط (MW)</td>
+        <td><strong>رادیو فردا</strong><br><small style="color:#555;">رادیو فردا: رله موج متوسط بعدازظهر</small></td>
+        <td>فارسی</td>
+        <td><strong>18:30 تا 20:30</strong></td>
+        <td>گاوار (ارمنستان)<br><small style="color:#666;">500 kW</small></td>
+        <td><span class="badge-a">سطح A</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong style="color:#1f497d; font-size:10pt;">1548</strong> <small>kHz</small></td>
+        <td>موج متوسط (MW)</td>
+        <td><strong>صدای آمریکا (VOA بخش فارسی)</strong><br><small style="color:#555;">صدای آمریکا: پخش ۲۴ ساعته موج متوسط خاورمیانه</small></td>
+        <td>فارسی</td>
+        <td><strong>03:30 تا 03:30 (۲۴ ساعته)</strong></td>
+        <td>الکبد (کویت)<br><small style="color:#666;">600 kW</small></td>
+        <td><span class="badge-a">سطح A</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong style="color:#1f497d; font-size:10pt;">5860</strong> <small>kHz</small></td>
+        <td>باند ۴۹ متر</td>
+        <td><strong>رادیو فردا</strong><br><small style="color:#555;">رادیو فردا: اخبار، گزارش و پخش زنده بامداد و صبحگاهی</small></td>
+        <td>فارسی</td>
+        <td><strong>03:30 تا 09:30</strong></td>
+        <td>الکبد (کویت)<br><small style="color:#666;">250 kW</small></td>
+        <td><span class="badge-a">سطح A</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong style="color:#1f497d; font-size:10pt;">5890</strong> <small>kHz</small></td>
+        <td>باند ۴۹ متر</td>
+        <td><strong>صدا و سیمای ایران اینترنشنال (رله موج کوتاه)</strong><br><small style="color:#555;">ایران اینترنشنال: رله صوتی شبانگاهی موج کوتاه (فرکانس اصلی)</small></td>
+        <td>فارسی</td>
+        <td><strong>22:30 تا 07:30 (روز بعد)</strong></td>
+        <td>کوستینبرود (بلغارستان - اسپیس‌لاین)<br><small style="color:#666;">100 kW</small></td>
+        <td><span class="badge-b">سطح B</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong style="color:#1f497d; font-size:10pt;">5900</strong> <small>kHz</small></td>
+        <td>باند ۴۹ متر</td>
+        <td><strong>صدا و سیمای ایران اینترنشنال (رله موج کوتاه)</strong><br><small style="color:#555;">ایران اینترنشنال: فرکانس موازی رله شبانگاهی (باند ۴۹ متر)</small></td>
+        <td>فارسی</td>
+        <td><strong>22:30 تا 07:30 (روز بعد)</strong></td>
+        <td>کوستینبرود (بلغارستان - اسپیس‌لاین)<br><small style="color:#666;">100 kW</small></td>
+        <td><span class="badge-b">سطح B</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong style="color:#1f497d; font-size:10pt;">6000</strong> <small>kHz</small></td>
+        <td>باند ۴۹ متر</td>
+        <td><strong>صدای جمهوری اسلامی ایران (سرویس‌های برون‌مرزی صدا و سیما)</strong><br><small style="color:#555;">صدای جمهوری اسلامی ایران: برنامه تاجیکی (موج کوتاه باند ۴۹ متر)</small></td>
+        <td>تاجیکی (فارسی ماوراءالنهر)</td>
+        <td><strong>04:20 تا 05:50</strong></td>
+        <td>سیرجان (کرمان)<br><small style="color:#666;">500 kW</small></td>
+        <td><span class="badge-a">سطح A</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong style="color:#1f497d; font-size:10pt;">6000</strong> <small>kHz</small></td>
+        <td>باند ۴۹ متر</td>
+        <td><strong>رادیو فارسی بی‌بی‌سی (پخش اضطراری و رله‌ها)</strong><br><small style="color:#555;">رادیو فارسی بی‌بی‌سی: فرکانس رله اضطراری موج کوتاه (باند ۴۹ متر)</small></td>
+        <td>فارسی</td>
+        <td><strong>20:00 تا 20:30</strong></td>
+        <td>ترینکومالی (سری‌لانکا)<br><small style="color:#666;">250 kW</small></td>
+        <td><span class="badge-c">سطح C</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong style="color:#1f497d; font-size:10pt;">6010</strong> <small>kHz</small></td>
+        <td>باند ۴۹ متر</td>
+        <td><strong>رادیو زمانه</strong><br><small style="color:#555;">رادیو زمانه: برنامه شبانگاهی مجله اجتماعی و فرهنگی</small></td>
+        <td>فارسی</td>
+        <td><strong>23:00 تا 00:00 (روز بعد)</strong></td>
+        <td>کوستینبرود (بلغارستان - اسپیس‌لاین)<br><small style="color:#666;">100 kW</small></td>
+        <td><span class="badge-b">سطح B</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong style="color:#1f497d; font-size:10pt;">6195</strong> <small>kHz</small></td>
+        <td>باند ۴۹ متر</td>
+        <td><strong>سرویس جهانی بی‌بی‌سی (انگلیسی و عربی)</strong><br><small style="color:#555;">سرویس جهانی بی‌بی‌سی: اخبار جهانی به زبان انگلیسی (باند ۴۹ متر)</small></td>
+        <td>انگلیسی</td>
+        <td><strong>07:30 تا 10:30</strong></td>
+        <td>زیگی (قبرس)<br><small style="color:#666;">300 kW</small></td>
+        <td><span class="badge-a">سطح A</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong style="color:#1f497d; font-size:10pt;">7250</strong> <small>kHz</small></td>
+        <td>باند ۴۱ متر</td>
+        <td><strong>رادیو کویت (بخش فارسی)</strong><br><small style="color:#555;">رادیو کویت: برنامه نیمروزی بخش فارسی</small></td>
+        <td>فارسی</td>
+        <td><strong>11:30 تا 13:30</strong></td>
+        <td>الکبد (کویت)<br><small style="color:#666;">250 kW</small></td>
+        <td><span class="badge-a">سطح A</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong style="color:#1f497d; font-size:10pt;">7325</strong> <small>kHz</small></td>
+        <td>باند ۴۱ متر</td>
+        <td><strong>رادیو بین‌المللی چین (بخش فارسی)</strong><br><small style="color:#555;">رادیو بین‌المللی چین: بازپخش شامگاهی (باند ۴۱ متر)</small></td>
+        <td>فارسی</td>
+        <td><strong>21:30 تا 22:30</strong></td>
+        <td>پکن (چین)<br><small style="color:#666;">500 kW</small></td>
+        <td><span class="badge-a">سطح A</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong style="color:#1f497d; font-size:10pt;">7415</strong> <small>kHz</small></td>
+        <td>باند ۴۱ متر</td>
+        <td><strong>رادیو بین‌المللی چین (بخش فارسی)</strong><br><small style="color:#555;">رادیو بین‌المللی چین: برنامه شامگاهی بخش فارسی (نوبت اول)</small></td>
+        <td>فارسی</td>
+        <td><strong>21:30 تا 22:30</strong></td>
+        <td>شی‌آن (چین)<br><small style="color:#666;">500 kW</small></td>
+        <td><span class="badge-a">سطح A</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong style="color:#1f497d; font-size:10pt;">7435</strong> <small>kHz</small></td>
+        <td>باند ۴۱ متر</td>
+        <td><strong>رادیو فردا</strong><br><small style="color:#555;">رادیو فردا: مجله نیمروزی و بعدازظهر</small></td>
+        <td>فارسی</td>
+        <td><strong>14:30 تا 17:30</strong></td>
+        <td>الکبد (کویت)<br><small style="color:#666;">250 kW</small></td>
+        <td><span class="badge-a">سطح A</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong style="color:#1f497d; font-size:10pt;">9310</strong> <small>kHz</small></td>
+        <td>باند ۳۱ متر</td>
+        <td><strong>شبکه‌های سیاسی و رادیوهای زیرزمینی (پیام، براندازی، مجاهد)</strong><br><small style="color:#555;">رادیو پیام (چپ / کارگری و دانشجویی)</small></td>
+        <td>فارسی</td>
+        <td><strong>21:00 تا 23:00</strong></td>
+        <td>فرستنده اجاره‌ای اروپای شرقی<br><small style="color:#666;">100 kW</small></td>
+        <td><span class="badge-c">سطح C</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong style="color:#1f497d; font-size:10pt;">9320</strong> <small>kHz</small></td>
+        <td>باند ۳۱ متر</td>
+        <td><strong>شبکه‌های سیاسی و رادیوهای زیرزمینی (پیام، براندازی، مجاهد)</strong><br><small style="color:#555;">صدای مجاهد (رادیو مجاهدین خلق)</small></td>
+        <td>فارسی</td>
+        <td><strong>20:30 تا 21:00</strong></td>
+        <td>فرستنده اجاره‌ای متغیر<br><small style="color:#666;">100 kW</small></td>
+        <td><span class="badge-c">سطح C</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong style="color:#1f497d; font-size:10pt;">9360</strong> <small>kHz</small></td>
+        <td>باند ۳۱ متر</td>
+        <td><strong>رادیو فردا</strong><br><small style="color:#555;">رادیو فردا: پخش زنده عصر و شامگاهی</small></td>
+        <td>فارسی</td>
+        <td><strong>17:30 تا 02:30 (روز بعد)</strong></td>
+        <td>الکبد (کویت)<br><small style="color:#666;">250 kW</small></td>
+        <td><span class="badge-a">سطح A</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong style="color:#1f497d; font-size:10pt;">9370</strong> <small>kHz</small></td>
+        <td>باند ۳۱ متر</td>
+        <td><strong>رادیو فردا</strong><br><small style="color:#555;">رادیو فردا: فرکانس مکمل شامگاهی (باند ۳۱ متر)</small></td>
+        <td>فارسی</td>
+        <td><strong>19:30 تا 01:30 (روز بعد)</strong></td>
+        <td>ووفِرتون (بریتانیا) / بیبلیس<br><small style="color:#666;">250 kW</small></td>
+        <td><span class="badge-a">سطح A</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong style="color:#1f497d; font-size:10pt;">9400</strong> <small>kHz</small></td>
+        <td>باند ۳۱ متر</td>
+        <td><strong>رادیوهای فرهنگی و مذهبی (رادیو مژده / ترانس ورلد و ندای کتاب مقدس)</strong><br><small style="color:#555;">صدای انجیل (Bible Voice بخش فارسی - باند ۳۱ متر)</small></td>
+        <td>فارسی</td>
+        <td><strong>21:30 تا 22:00</strong></td>
+        <td>کوستینبرود (بلغارستان)<br><small style="color:#666;">100 kW</small></td>
+        <td><span class="badge-b">سطح B</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong style="color:#1f497d; font-size:10pt;">9410</strong> <small>kHz</small></td>
+        <td>باند ۳۱ متر</td>
+        <td><strong>سرویس جهانی بی‌بی‌سی (انگلیسی و عربی)</strong><br><small style="color:#555;">سرویس جهانی بی‌بی‌سی: اخبار بین‌المللی انگلیسی (باند ۳۱ متر)</small></td>
+        <td>انگلیسی</td>
+        <td><strong>18:30 تا 21:30</strong></td>
+        <td>ووفِرتون (بریتانیا)<br><small style="color:#666;">250 kW</small></td>
+        <td><span class="badge-a">سطح A</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong style="color:#1f497d; font-size:10pt;">9490</strong> <small>kHz</small></td>
+        <td>باند ۳۱ متر</td>
+        <td><strong>صدای ترکیه (TRT بخش فارسی)</strong><br><small style="color:#555;">صدای ترکیه: فرکانس زمستانه بخش فارسی (باند ۳۱ متر)</small></td>
+        <td>فارسی</td>
+        <td><strong>19:30 تا 20:30</strong></td>
+        <td>امیرلر (ترکیه)<br><small style="color:#666;">500 kW</small></td>
+        <td><span class="badge-a">سطح A</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong style="color:#1f497d; font-size:10pt;">9515</strong> <small>kHz</small></td>
+        <td>باند ۳۱ متر</td>
+        <td><strong>رادیو جهانی کی‌بی‌اس کره جنوبی (KBS World Radio)</strong><br><small style="color:#555;">رادیو جهانی کی‌بی‌اس کره جنوبی: بخش انگلیسی (باند ۳۱ متر)</small></td>
+        <td>انگلیسی</td>
+        <td><strong>17:30 تا 18:30</strong></td>
+        <td>کیمجه (کره جنوبی)<br><small style="color:#666;">250 kW</small></td>
+        <td><span class="badge-a">سطح A</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong style="color:#1f497d; font-size:10pt;">9545</strong> <small>kHz</small></td>
+        <td>باند ۳۱ متر</td>
+        <td><strong>رادیو تایوان بین‌المللی (RTI)</strong><br><small style="color:#555;">رادیو تایوان بین‌المللی (RTI): برنامه خبری انگلیسی</small></td>
+        <td>انگلیسی</td>
+        <td><strong>15:30 تا 16:30</strong></td>
+        <td>کوگا (تایوان)<br><small style="color:#666;">250 kW</small></td>
+        <td><span class="badge-a">سطح A</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong style="color:#1f497d; font-size:10pt;">9570</strong> <small>kHz</small></td>
+        <td>باند ۳۱ متر</td>
+        <td><strong>رادیو بین‌المللی چین (بخش فارسی)</strong><br><small style="color:#555;">رادیو بین‌المللی چین: برنامه بعدازظهر بخش فارسی (باند ۳۱ متر)</small></td>
+        <td>فارسی</td>
+        <td><strong>18:30 تا 19:00</strong></td>
+        <td>ارومچی (چین)<br><small style="color:#666;">500 kW</small></td>
+        <td><span class="badge-a">سطح A</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong style="color:#1f497d; font-size:10pt;">9600</strong> <small>kHz</small></td>
+        <td>باند ۳۱ متر</td>
+        <td><strong>رادیو بین‌المللی چین (بخش فارسی)</strong><br><small style="color:#555;">رادیو بین‌المللی چین: فرکانس موازی بعدازظهر (باند ۳۱ متر)</small></td>
+        <td>فارسی</td>
+        <td><strong>18:30 تا 19:00</strong></td>
+        <td>کاشغر (سین‌کیانگ)<br><small style="color:#666;">500 kW</small></td>
+        <td><span class="badge-a">سطح A</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong style="color:#1f497d; font-size:10pt;">9600</strong> <small>kHz</small></td>
+        <td>باند ۳۱ متر</td>
+        <td><strong>رادیو ژاپن (NHK World بخش فارسی)</strong><br><small style="color:#555;">رادیو ژاپن: فرکانس زمستانه بخش فارسی (باند ۳۱ متر)</small></td>
+        <td>فارسی</td>
+        <td><strong>20:00 تا 20:20</strong></td>
+        <td>یاماتا (ژاپن)<br><small style="color:#666;">300 kW</small></td>
+        <td><span class="badge-a">سطح A</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong style="color:#1f497d; font-size:10pt;">9620</strong> <small>kHz</small></td>
+        <td>باند ۳۱ متر</td>
+        <td><strong>رادیو هند (آکاشوانی / بخش فارسی)</strong><br><small style="color:#555;">رادیو هند (آکاشوانی): برنامه شبانگاهی بخش فارسی</small></td>
+        <td>فارسی</td>
+        <td><strong>19:30 تا 21:00</strong></td>
+        <td>بنگالورو (هند)<br><small style="color:#666;">250 kW</small></td>
+        <td><span class="badge-a">سطح A</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong style="color:#1f497d; font-size:10pt;">9670</strong> <small>kHz</small></td>
+        <td>باند ۳۱ متر</td>
+        <td><strong>رادیو بین‌المللی چین (بخش فارسی)</strong><br><small style="color:#555;">رادیو بین‌المللی چین: فرکانس موازی شامگاهی (باند ۳۱ متر)</small></td>
+        <td>فارسی</td>
+        <td><strong>21:30 تا 22:00</strong></td>
+        <td>پکن (چین)<br><small style="color:#666;">500 kW</small></td>
+        <td><span class="badge-a">سطح A</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong style="color:#1f497d; font-size:10pt;">9690</strong> <small>kHz</small></td>
+        <td>باند ۳۱ متر</td>
+        <td><strong>رادیو بین‌المللی اسپانیا (REE)</strong><br><small style="color:#555;">رادیو بین‌المللی اسپانیا (REE): برنامه به زبان اسپانیایی و انگلیسی</small></td>
+        <td>اسپانیایی</td>
+        <td><strong>21:30 تا 01:30 (روز بعد)</strong></td>
+        <td>نوبله‌خاس (اسپانیا)<br><small style="color:#666;">350 kW</small></td>
+        <td><span class="badge-a">سطح A</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong style="color:#1f497d; font-size:10pt;">9715</strong> <small>kHz</small></td>
+        <td>باند ۳۱ متر</td>
+        <td><strong>صدای جمهوری اسلامی ایران (سرویس‌های برون‌مرزی صدا و سیما)</strong><br><small style="color:#555;">صدای جمهوری اسلامی ایران: برنامه کردی (باند ۳۱ متر)</small></td>
+        <td>کردی (سورانی)</td>
+        <td><strong>16:50 تا 17:50</strong></td>
+        <td>سیرجان (کرمان)<br><small style="color:#666;">500 kW</small></td>
+        <td><span class="badge-a">سطح A</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong style="color:#1f497d; font-size:10pt;">9730</strong> <small>kHz</small></td>
+        <td>باند ۳۱ متر</td>
+        <td><strong>رادیو رومانی بین‌المللی (RRI)</strong><br><small style="color:#555;">رادیو رومانی بین‌المللی: برنامه عصرگاهی به زبان انگلیسی</small></td>
+        <td>انگلیسی</td>
+        <td><strong>20:30 تا 21:30</strong></td>
+        <td>گالوانی (رومانی)<br><small style="color:#666;">300 kW</small></td>
+        <td><span class="badge-a">سطح A</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong style="color:#1f497d; font-size:10pt;">9740</strong> <small>kHz</small></td>
+        <td>باند ۳۱ متر</td>
+        <td><strong>رادیو جهانی کی‌بی‌اس کره جنوبی (KBS World Radio)</strong><br><small style="color:#555;">رادیو جهانی کی‌بی‌اس کره جنوبی: بخش عربی خاورمیانه</small></td>
+        <td>عربی</td>
+        <td><strong>19:30 تا 20:30</strong></td>
+        <td>ووفِرتون (بریتانیا - رله)<br><small style="color:#666;">250 kW</small></td>
+        <td><span class="badge-a">سطح A</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong style="color:#1f497d; font-size:10pt;">9765</strong> <small>kHz</small></td>
+        <td>باند ۳۱ متر</td>
+        <td><strong>صدای ترکیه (TRT بخش فارسی)</strong><br><small style="color:#555;">صدای ترکیه: برنامه غروبگاهی بخش فارسی</small></td>
+        <td>فارسی</td>
+        <td><strong>18:30 تا 19:30</strong></td>
+        <td>امیرلر (ترکیه)<br><small style="color:#666;">500 kW</small></td>
+        <td><span class="badge-a">سطح A</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong style="color:#1f497d; font-size:10pt;">9830</strong> <small>kHz</small></td>
+        <td>باند ۳۱ متر</td>
+        <td><strong>سرویس جهانی بی‌بی‌سی (انگلیسی و عربی)</strong><br><small style="color:#555;">بی‌بی‌سی عربی: پخش اخبار جهان عرب و منطقه (باند ۳۱ متر)</small></td>
+        <td>عربی</td>
+        <td><strong>07:30 تا 09:30</strong></td>
+        <td>زیگی (قبرس)<br><small style="color:#666;">300 kW</small></td>
+        <td><span class="badge-a">سطح A</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong style="color:#1f497d; font-size:10pt;">9830</strong> <small>kHz</small></td>
+        <td>باند ۳۱ متر</td>
+        <td><strong>صدای جمهوری اسلامی ایران (سرویس‌های برون‌مرزی صدا و سیما)</strong><br><small style="color:#555;">صدای جمهوری اسلامی ایران: سرویس انگلیسی برون‌مرزی (باند ۳۱ متر)</small></td>
+        <td>انگلیسی</td>
+        <td><strong>22:50 تا 23:50</strong></td>
+        <td>سیرجان (کرمان)<br><small style="color:#666;">500 kW</small></td>
+        <td><span class="badge-a">سطح A</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong style="color:#1f497d; font-size:10pt;">11815</strong> <small>kHz</small></td>
+        <td>باند ۲۵ متر</td>
+        <td><strong>شبکه‌های سیاسی و رادیوهای زیرزمینی (پیام، براندازی، مجاهد)</strong><br><small style="color:#555;">رادیو پیام: فرکانس جایگزین شامگاهی</small></td>
+        <td>فارسی</td>
+        <td><strong>20:30 تا 00:30 (روز بعد)</strong></td>
+        <td>ووفِرتون (بریتانیا)<br><small style="color:#666;">250 kW</small></td>
+        <td><span class="badge-c">سطح C</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong style="color:#1f497d; font-size:10pt;">11850</strong> <small>kHz</small></td>
+        <td>باند ۲۵ متر</td>
+        <td><strong>رادیو رومانی بین‌المللی (RRI)</strong><br><small style="color:#555;">رادیو رومانی بین‌المللی: بخش عربی ویژه خاورمیانه</small></td>
+        <td>عربی</td>
+        <td><strong>17:30 تا 18:30</strong></td>
+        <td>تیگَنِشتی (بخارست)<br><small style="color:#666;">300 kW</small></td>
+        <td><span class="badge-a">سطح A</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong style="color:#1f497d; font-size:10pt;">11855</strong> <small>kHz</small></td>
+        <td>باند ۲۵ متر</td>
+        <td><strong>رادیوهای فرهنگی و مذهبی (رادیو مژده / ترانس ورلد و ندای کتاب مقدس)</strong><br><small style="color:#555;">صدای انجیل (Bible Voice بخش فارسی - باند ۲۵ متر)</small></td>
+        <td>فارسی</td>
+        <td><strong>21:30 تا 22:00</strong></td>
+        <td>نائن (آلمان)<br><small style="color:#666;">500 kW</small></td>
+        <td><span class="badge-b">سطح B</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong style="color:#1f497d; font-size:10pt;">11905</strong> <small>kHz</small></td>
+        <td>باند ۲۵ متر</td>
+        <td><strong>رادیو هند (آکاشوانی / بخش فارسی)</strong><br><small style="color:#555;">رادیو هند: فرکانس تکمیلی شامگاهی (باند ۲۵ متر)</small></td>
+        <td>فارسی</td>
+        <td><strong>19:30 تا 21:00</strong></td>
+        <td>بنگالورو (هند)<br><small style="color:#666;">250 kW</small></td>
+        <td><span class="badge-a">سطح A</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong style="color:#1f497d; font-size:10pt;">11945</strong> <small>kHz</small></td>
+        <td>باند ۲۵ متر</td>
+        <td><strong>شبکه‌های سیاسی و رادیوهای زیرزمینی (پیام، براندازی، مجاهد)</strong><br><small style="color:#555;">رادیو براندازی</small></td>
+        <td>فارسی</td>
+        <td><strong>17:00 تا 18:00</strong></td>
+        <td>فرستنده متغیر<br><small style="color:#666;">100 kW</small></td>
+        <td><span class="badge-c">سطح C</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong style="color:#1f497d; font-size:10pt;">12005</strong> <small>kHz</small></td>
+        <td>باند ۲۵ متر</td>
+        <td><strong>رادیو فردا</strong><br><small style="color:#555;">رادیو فردا: برنامه روزانه (باند ۲۵ متر)</small></td>
+        <td>فارسی</td>
+        <td><strong>09:30 تا 15:30</strong></td>
+        <td>الکبد (کویت)<br><small style="color:#666;">250 kW</small></td>
+        <td><span class="badge-a">سطح A</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong style="color:#1f497d; font-size:10pt;">12025</strong> <small>kHz</small></td>
+        <td>باند ۲۵ متر</td>
+        <td><strong>صدای آمریکا (سرویس بین‌المللی انگلیسی)</strong><br><small style="color:#555;">صدای آمریکا: اخبار انگلیسی VOA News Now (باند ۲۵ متر)</small></td>
+        <td>انگلیسی</td>
+        <td><strong>06:30 تا 09:30</strong></td>
+        <td>الکبد (کویت)<br><small style="color:#666;">250 kW</small></td>
+        <td><span class="badge-a">سطح A</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong style="color:#1f497d; font-size:10pt;">12070</strong> <small>kHz</small></td>
+        <td>باند ۲۵ متر</td>
+        <td><strong>رادیو فردا</strong><br><small style="color:#555;">رادیو فردا: فرکانس جایگزین روزانه (باند ۲۵ متر)</small></td>
+        <td>فارسی</td>
+        <td><strong>11:30 تا 18:30</strong></td>
+        <td>بیبلیس (آلمان)<br><small style="color:#666;">100 kW</small></td>
+        <td><span class="badge-a">سطح A</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong style="color:#1f497d; font-size:10pt;">12095</strong> <small>kHz</small></td>
+        <td>باند ۲۵ متر</td>
+        <td><strong>سرویس جهانی بی‌بی‌سی (انگلیسی و عربی)</strong><br><small style="color:#555;">سرویس جهانی بی‌بی‌سی: برنامه روزانه انگلیسی (باند ۲۵ متر)</small></td>
+        <td>انگلیسی</td>
+        <td><strong>10:30 تا 18:30</strong></td>
+        <td>الاشخره (عمان)<br><small style="color:#666;">250 kW</small></td>
+        <td><span class="badge-a">سطح A</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong style="color:#1f497d; font-size:10pt;">13600</strong> <small>kHz</small></td>
+        <td>باند ۲۲ متر</td>
+        <td><strong>رادیو ژاپن (NHK World بخش فارسی)</strong><br><small style="color:#555;">رادیو ژاپن (NHK World): برنامه شامگاهی بخش فارسی</small></td>
+        <td>فارسی</td>
+        <td><strong>20:00 تا 20:20</strong></td>
+        <td>یاماتا (ژاپن)<br><small style="color:#666;">300 kW</small></td>
+        <td><span class="badge-a">سطح A</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong style="color:#1f497d; font-size:10pt;">13745</strong> <small>kHz</small></td>
+        <td>باند ۲۲ متر</td>
+        <td><strong>صدای ترکیه (TRT بخش فارسی)</strong><br><small style="color:#555;">صدای ترکیه: فرکانس روزانه فصول سرد (باند ۲۲ متر)</small></td>
+        <td>فارسی</td>
+        <td><strong>13:00 تا 14:30</strong></td>
+        <td>امیرلر (ترکیه)<br><small style="color:#666;">500 kW</small></td>
+        <td><span class="badge-a">سطح A</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong style="color:#1f497d; font-size:10pt;">15130</strong> <small>kHz</small></td>
+        <td>باند ۱۹ متر</td>
+        <td><strong>رادیو هند (آکاشوانی / بخش فارسی)</strong><br><small style="color:#555;">رادیو هند (آکاشوانی): برنامه صبحگاهی بخش فارسی</small></td>
+        <td>فارسی</td>
+        <td><strong>07:30 تا 09:00</strong></td>
+        <td>بنگالورو (هند)<br><small style="color:#666;">250 kW</small></td>
+        <td><span class="badge-a">سطح A</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong style="color:#1f497d; font-size:10pt;">15580</strong> <small>kHz</small></td>
+        <td>باند ۱۹ متر</td>
+        <td><strong>صدای آمریکا (سرویس بین‌المللی انگلیسی)</strong><br><small style="color:#555;">صدای آمریکا: سرویس انگلیسی عصرگاهی (باند ۱۹ متر)</small></td>
+        <td>انگلیسی</td>
+        <td><strong>17:30 تا 20:30</strong></td>
+        <td>نائن (آلمان)<br><small style="color:#666;">500 kW</small></td>
+        <td><span class="badge-a">سطح A</span></td>
+      </tr>
+      
+      <tr>
+        <td><strong style="color:#1f497d; font-size:10pt;">15720</strong> <small>kHz</small></td>
+        <td>باند ۱۹ متر</td>
+        <td><strong>صدای ترکیه (TRT بخش فارسی)</strong><br><small style="color:#555;">صدای ترکیه: برنامه نیمروزی بخش فارسی (باند ۱۹ متر)</small></td>
+        <td>فارسی</td>
+        <td><strong>12:00 تا 13:30</strong></td>
+        <td>امیرلر (ترکیه)<br><small style="color:#666;">500 kW</small></td>
+        <td><span class="badge-a">سطح A</span></td>
+      </tr>
+      
+    </tbody>
+  </table>
+
+  <!-- SECTION 3: INTERNATIONAL SERVICES -->
+  <div class="page-break"></div>
+  <h2 class="section-title">۳. ایستگاه‌های مهم بین‌المللی به زبان‌های انگلیسی و عربی در ایران</h2>
+  <table class="pdf-table">
+    <thead>
+      <tr>
+        <th style="width: 18%;">ساعت پخش (تهران)</th>
+        <th style="width: 14%;">فرکانس (kHz)</th>
+        <th style="width: 14%;">باند امواج</th>
+        <th style="width: 22%;">شبکه و کشور</th>
+        <th style="width: 12%;">زبان</th>
+        <th style="width: 20%;">توضیحات و فرستنده</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td><strong>06:30 تا 09:30</strong></td>
+        <td><strong style="color:#1f497d;">12025 kHz</strong></td>
+        <td>باند ۲۵ متر</td>
+        <td><strong>صدای آمریکا (سرویس بین‌المللی انگلیسی)</strong><br><small style="color:#555;">ایالات متحده</small></td>
+        <td>انگلیسی</td>
+        <td>الکبد (کویت) (250 kW)</td>
+      </tr>
+      
+      <tr>
+        <td><strong>07:30 تا 10:30</strong></td>
+        <td><strong style="color:#1f497d;">6195 kHz</strong></td>
+        <td>باند ۴۹ متر</td>
+        <td><strong>سرویس جهانی بی‌بی‌سی (انگلیسی و عربی)</strong><br><small style="color:#555;">بریتانیا</small></td>
+        <td>انگلیسی</td>
+        <td>زیگی (قبرس) (300 kW)</td>
+      </tr>
+      
+      <tr>
+        <td><strong>07:30 تا 09:30</strong></td>
+        <td><strong style="color:#1f497d;">9830 kHz</strong></td>
+        <td>باند ۳۱ متر</td>
+        <td><strong>سرویس جهانی بی‌بی‌سی (انگلیسی و عربی)</strong><br><small style="color:#555;">بریتانیا</small></td>
+        <td>عربی</td>
+        <td>زیگی (قبرس) (300 kW)</td>
+      </tr>
+      
+      <tr>
+        <td><strong>10:30 تا 18:30</strong></td>
+        <td><strong style="color:#1f497d;">12095 kHz</strong></td>
+        <td>باند ۲۵ متر</td>
+        <td><strong>سرویس جهانی بی‌بی‌سی (انگلیسی و عربی)</strong><br><small style="color:#555;">بریتانیا</small></td>
+        <td>انگلیسی</td>
+        <td>الاشخره (عمان) (250 kW)</td>
+      </tr>
+      
+      <tr>
+        <td><strong>15:30 تا 16:30</strong></td>
+        <td><strong style="color:#1f497d;">9545 kHz</strong></td>
+        <td>باند ۳۱ متر</td>
+        <td><strong>رادیو تایوان بین‌المللی (RTI)</strong><br><small style="color:#555;">تایوان</small></td>
+        <td>انگلیسی</td>
+        <td>کوگا (تایوان) (250 kW)</td>
+      </tr>
+      
+      <tr>
+        <td><strong>16:50 تا 17:50</strong></td>
+        <td><strong style="color:#1f497d;">9715 kHz</strong></td>
+        <td>باند ۳۱ متر</td>
+        <td><strong>صدای جمهوری اسلامی ایران (سرویس‌های برون‌مرزی صدا و سیما)</strong><br><small style="color:#555;">ایران (تهران)</small></td>
+        <td>کردی (سورانی)</td>
+        <td>سیرجان (کرمان) (500 kW)</td>
+      </tr>
+      
+      <tr>
+        <td><strong>17:30 تا 18:30</strong></td>
+        <td><strong style="color:#1f497d;">9515 kHz</strong></td>
+        <td>باند ۳۱ متر</td>
+        <td><strong>رادیو جهانی کی‌بی‌اس کره جنوبی (KBS World Radio)</strong><br><small style="color:#555;">کره جنوبی</small></td>
+        <td>انگلیسی</td>
+        <td>کیمجه (کره جنوبی) (250 kW)</td>
+      </tr>
+      
+      <tr>
+        <td><strong>17:30 تا 18:30</strong></td>
+        <td><strong style="color:#1f497d;">11850 kHz</strong></td>
+        <td>باند ۲۵ متر</td>
+        <td><strong>رادیو رومانی بین‌المللی (RRI)</strong><br><small style="color:#555;">رومانی</small></td>
+        <td>عربی</td>
+        <td>تیگَنِشتی (بخارست) (300 kW)</td>
+      </tr>
+      
+      <tr>
+        <td><strong>17:30 تا 20:30</strong></td>
+        <td><strong style="color:#1f497d;">15580 kHz</strong></td>
+        <td>باند ۱۹ متر</td>
+        <td><strong>صدای آمریکا (سرویس بین‌المللی انگلیسی)</strong><br><small style="color:#555;">ایالات متحده</small></td>
+        <td>انگلیسی</td>
+        <td>نائن (آلمان) (500 kW)</td>
+      </tr>
+      
+      <tr>
+        <td><strong>18:30 تا 21:30</strong></td>
+        <td><strong style="color:#1f497d;">9410 kHz</strong></td>
+        <td>باند ۳۱ متر</td>
+        <td><strong>سرویس جهانی بی‌بی‌سی (انگلیسی و عربی)</strong><br><small style="color:#555;">بریتانیا</small></td>
+        <td>انگلیسی</td>
+        <td>ووفِرتون (بریتانیا) (250 kW)</td>
+      </tr>
+      
+      <tr>
+        <td><strong>19:30 تا 20:30</strong></td>
+        <td><strong style="color:#1f497d;">9740 kHz</strong></td>
+        <td>باند ۳۱ متر</td>
+        <td><strong>رادیو جهانی کی‌بی‌اس کره جنوبی (KBS World Radio)</strong><br><small style="color:#555;">کره جنوبی</small></td>
+        <td>عربی</td>
+        <td>ووفِرتون (بریتانیا - رله) (250 kW)</td>
+      </tr>
+      
+      <tr>
+        <td><strong>20:30 تا 21:30</strong></td>
+        <td><strong style="color:#1f497d;">9730 kHz</strong></td>
+        <td>باند ۳۱ متر</td>
+        <td><strong>رادیو رومانی بین‌المللی (RRI)</strong><br><small style="color:#555;">رومانی</small></td>
+        <td>انگلیسی</td>
+        <td>گالوانی (رومانی) (300 kW)</td>
+      </tr>
+      
+      <tr>
+        <td><strong>21:30 تا 01:30 (روز بعد)</strong></td>
+        <td><strong style="color:#1f497d;">9690 kHz</strong></td>
+        <td>باند ۳۱ متر</td>
+        <td><strong>رادیو بین‌المللی اسپانیا (REE)</strong><br><small style="color:#555;">اسپانیا</small></td>
+        <td>اسپانیایی</td>
+        <td>نوبله‌خاس (اسپانیا) (350 kW)</td>
+      </tr>
+      
+      <tr>
+        <td><strong>22:50 تا 23:50</strong></td>
+        <td><strong style="color:#1f497d;">9830 kHz</strong></td>
+        <td>باند ۳۱ متر</td>
+        <td><strong>صدای جمهوری اسلامی ایران (سرویس‌های برون‌مرزی صدا و سیما)</strong><br><small style="color:#555;">ایران (تهران)</small></td>
+        <td>انگلیسی</td>
+        <td>سیرجان (کرمان) (500 kW)</td>
+      </tr>
+      
+    </tbody>
+  </table>
+
+  <!-- SECTION 4: RECEIVER GUIDE & PROPAGATION -->
+  <h2 class="section-title">۴. راهنمای کاربردی استفاده از گیرنده رادیو و رفع پارازیت</h2>
+  <div class="box-info">
+    <p><strong>۱. تنظیم گیرنده:</strong> رادیو را روی حالت <strong>AM</strong> قرار دهید. برای تمام ایستگاه‌های این راهنما حالت AM استاندارد کافی است.</p>
+    <p><strong>۲. قاعده انتشار روز و شب:</strong> در طول شب، فرکانس‌های زیر ۱۰ مگاهرتز (باند ۴۹ متر مثل ۵۸۶۰ و ۵۸۹۰ و باند ۴۱ متر مثل ۷۴۱۵ کیلوهرتز) بیشترین قدرت را دارند. در طول روز، فرکانس‌های بالای ۱۲ مگاهرتز (باند ۲۵ متر مثل ۱۲۰۰۵ و باند ۱۹ متر مثل ۱۵۷۲۰ و ۱۵۱۳۰ کیلوهرتز) دریافت بسیار شفافی دارند.</p>
+    <p><strong>۳. رفع نویز خانگی:</strong> شارژر موبایل، لامپ کم‌مصرف، مودم و تلویزیون تولیدکننده نویز هستند. رادیو را با باتری و در فاصله ۳ متری از پریزها و وسایل برقی استفاده کنید.</p>
+    <p><strong>۴. آنتن سیمی دست‌ساز (تقویت فوری):</strong> یک رشته سیم نازک ۳ تا ۵ متری را به نوک آنتن تلسکوپی رادیو متصل کنید و انتهای آن را بیرون از پنجره یا روی دیوار آویزان نمایید.</p>
+  </div>
+
+  <!-- SECTION 5: DATA SOURCES & CONFIDENCE -->
+  <h2 class="section-title">۵. مستندات، منابع رسمی و سطوح اطمینان داده‌ها</h2>
+  <div class="box-info">
+    <p><strong>سطح A (تأییدشده رسمی):</strong> تطابق کامل بین سند هماهنگی بین‌المللی HFCC B26 اتحادیه مخابرات و وبگاه رسمی سازمان فرستنده (رادیو فردا، رادیو چین، صدای ترکیه، رادیو هند، رادیو ژاپن، رادیو کویت، پارس‌تودی صداوسیما، بی‌بی‌سی انگلیسی، VOA و رادیو رومانی).</p>
+    <p><strong>سطح B (تأیید متقاطع تخصصی):</strong> رصد مستقل در دایرکتوری تخصصی EiBi و لاگ‌های مانیتورینگ شنوندگان (ایران اینترنشنال اسپیس‌لاین، رادیو زمانه، رادیو مژده).</p>
+    <p><strong>سطح C (پخش اضطراری یا نیازمند بررسی):</strong> فرکانس‌های رزرو بحران بی‌بی‌سی فارسی یا ایستگاه‌های احزاب سیاسی که در بازه‌های زمانی کوتاه پخش می‌شوند.</p>
+    <p><strong>شبکه‌های تاریخی و غیرفعال:</strong> رادیو دویچه وله فارسی (تعطیل شده در سال ۲۰۱۱) و رادیو فرانسه فارسی (RFI) دیگر هیچ پخش رادیویی روی موج کوتاه ندارند.</p>
+  </div>
+
+  <div style="text-align: center; font-size: 8pt; color: #888; margin-top: 15px; border-top: 1px solid #ddd; padding-top: 8px;">
+    تهیه‌شده توسط پروژه Iran SW Radio • نسخه 2.0.0-B26 • تاریخ تولید: ۲۸ اکتبر ۲۰۲۶ (۷ آبان ۱۴۰۵)
+  </div>
+
+</body>
+</html>

@@ -1,2 +1,15 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+# Enforce LF line endings for GitHub Actions workflows (runs on Ubuntu Linux)
+*.yml text eol=lf
+*.yaml text eol=lf
+*.sh text eol=lf
+
+# Code and data files
+*.py text
+*.json text
+*.csv text
+*.html text
+*.md text
+*.txt text

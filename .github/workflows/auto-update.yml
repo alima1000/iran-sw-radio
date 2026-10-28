@@ -1,0 +1,44 @@
+name: Auto-Update Iran SW Radio Database
+
+on:
+  schedule:
+    # Run every Sunday at 03:00 UTC
+    - cron: '0 3 * * 0'
+  workflow_dispatch: # Allows manual trigger from GitHub Actions UI
+
+permissions:
+  contents: write
+
+jobs:
+  update-database:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Dependencies
+        run: |
+          pip install requests openpyxl
+
+      - name: Fetch Raw Sources and Update Database
+        run: |
+          python tools/download_raw_sources.py || echo "Warning: Download had errors, continuing..."
+          python tools/build_database.py
+          python tools/build_html.py
+
+      - name: Commit and Push Changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action Bot"
+          git add data/ exports/ app/
+          if git diff --staged --quiet; then
+            echo "No database changes detected."
+          else
+            git commit -m "chore(data): auto-update radio database from EiBi and HFCC [skip ci]"
+            git push
+          fi
